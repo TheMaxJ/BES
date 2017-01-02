@@ -59,7 +59,10 @@ public class EventHandler {
 			score = 1;
 		} else if (i == 1) {
 			score = 0;
+		} else if (i == -1) {
+			return;
 		}
+		System.out.println(i);
 		p1.updateElo(p2, score);
 		p2.updateElo(p1, 1-score);
 		MainWindow.removePlayer(p1);
