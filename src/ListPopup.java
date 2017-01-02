@@ -1,5 +1,8 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import javax.swing.JList;
 import javax.swing.JMenu;
@@ -40,11 +43,42 @@ public class ListPopup extends JPopupMenu {
         });
         
         abc = new JMenuItem("Alphabetically");
-       // abc.addActionListener();
-        
+        abc.addActionListener(new ActionListener() {
+
+        	@Override
+        	public void actionPerformed(ActionEvent event) {
+        		List<String> sortme = new ArrayList<String>();
+        		for (int i = 0; i < MainWindow.getPlayerList().size(); i++) {
+        			sortme.add(MainWindow.getPlayerList().getElementAt(i));
+        		}
+        		Collections.sort(sortme, String.CASE_INSENSITIVE_ORDER);
+        		MainWindow.getPlayerList().clear();
+        		
+        		for (String s : sortme) {
+        			MainWindow.getPlayerList().addElement(s);
+        		}
+        	}
+    	   
+        });
         
         rank = new JMenuItem("Ranked");
-        
+        rank.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent event) {
+				List<String> sortme = new ArrayList<String>();
+        		for (int i = 0; i < MainWindow.getPlayerList().size(); i++) {
+        			sortme.add(MainWindow.getPlayerList().getElementAt(i));
+        		}
+        		Collections.sort(sortme, new EloComparator());
+        		MainWindow.getPlayerList().clear();
+        		
+        		for (String s : sortme) {
+        			MainWindow.getPlayerList().addElement(s);
+        		}
+			}
+        	
+        });        
         
         sort = new JMenu("Sort");
         sort.add(abc);
@@ -52,7 +86,10 @@ public class ListPopup extends JPopupMenu {
         
         add(delete);
         add(changeElo);
+        
         this.addSeparator();
+        
+        add(sort);
     }
     
     public ListPopup getInstance() {

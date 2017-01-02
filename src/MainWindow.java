@@ -117,10 +117,7 @@ public class MainWindow {
 				savePressed();
 			}
 		});
-		frame.getContentPane().add(btnSave, BorderLayout.NORTH);
-
-		updateLists();
-		
+		frame.getContentPane().add(btnSave, BorderLayout.NORTH);	
 	}
 	
 	public static boolean contains(String query) {
@@ -147,7 +144,7 @@ public class MainWindow {
 		playerList.removeElement(player.toString());
 	}
 	
-	public void updateLists() {
+	public void dupdateLists() {
 		List<String> alphabetical = new ArrayList<String>();
 		for (int i = 0; i < playerList.size(); i++) {
 			alphabetical.add(playerList.getElementAt(i));
@@ -166,7 +163,6 @@ public class MainWindow {
 	public void addPlayerPressed() {
 		String newPlayer = JOptionPane.showInputDialog("New player name");
 		playerList.addElement(newPlayer + Main.eloSpacer + "1000");
-		updateLists();
 	}
 	
 	public void newMatchPressed() {
@@ -211,7 +207,6 @@ public class MainWindow {
 		p2.pushElo();
 		addPlayer(p1);
 		addPlayer(p2);
-		updateLists();
 	}
 	
 	public void savePressed() {
