@@ -1,3 +1,4 @@
+package me.max.johnson.bes;
 import java.util.Comparator;
 
 public class EloComparator implements Comparator<String> {

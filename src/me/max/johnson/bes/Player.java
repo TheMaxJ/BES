@@ -1,3 +1,4 @@
+package me.max.johnson.bes;
 
 public class Player {
 	int elo;

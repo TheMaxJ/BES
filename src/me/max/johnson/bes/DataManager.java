@@ -1,3 +1,4 @@
+package me.max.johnson.bes;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;

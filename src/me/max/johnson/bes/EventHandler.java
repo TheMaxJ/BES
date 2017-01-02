@@ -1,3 +1,4 @@
+package me.max.johnson.bes;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,8 +13,6 @@ public class EventHandler {
 		JList<String> list = (JList<String>) event.getComponent();
 		int row = list.locationToIndex(event.getPoint());
         list.setSelectedIndex(row);  
-
-		
 	}
 	
 	public static void saveClicked() {

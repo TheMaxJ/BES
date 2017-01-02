@@ -1,3 +1,4 @@
+package me.max.johnson.bes;
 public class Main {
 	
 	public static final String eloSpacer = " | ";
